@@ -75,7 +75,28 @@ if(!S||!S.ev){S={td:'Tournament Director',cur:'e1',ev:[
 {id:'e1',name:'John H Shary Elementary Tournament',date:'2026-12-05',venue:'Mission, TX',rounds:4,players:[],rd:[]},
 {id:'e2',name:'Dr Carlos E Castaneda Elementary Tournament',date:'2026-12-12',venue:'McAllen, TX',rounds:4,players:[],rd:[]},
 {id:'e3',name:'De Zavala Elementary Tournament',date:'2027-01-09',venue:'Edinburg, TX',rounds:4,players:[],rd:[]}]}}
-function save(){try{localStorage.setItem('dkc-platform',JSON.stringify(S))}catch(e){}}
+var ref=null,canWrite=false,busy=false,again=false,mailto=null;
+function save(){try{localStorage.setItem('dkc-platform',JSON.stringify(S))}catch(e){}push()}
+function push(){if(!ref||!canWrite)return;if(busy){again=true;return}busy=true;ref.set({ev:JSON.parse(JSON.stringify(S.ev))}).catch(function(){toast('Could not save to the shared database.')}).then(function(){busy=false;if(again){again=false;push()}})}
+async function syncDb(){
+ try{
+  var c=window.claude;if(!c||!c.use)return;
+  var d=await c.use('db');if(!d)return;
+  var u=await c.use('user');
+  try{canWrite=u?!!(await u.canEdit()):false}catch(e){canWrite=false}
+  ref=d.doc('psa/state');
+  var t=setTimeout(function(){toast('Shared tournament data cannot be reached yet.')},10000);
+  ref.onSnapshot(function(s){
+   clearTimeout(t);
+   if(s.metadata.hasPendingWrites)return;
+   if(s.exists&&s.data().ev){
+    var nev=JSON.parse(JSON.stringify(s.data().ev));
+    if(JSON.stringify(nev)!==JSON.stringify(S.ev)){S.ev=nev;if(!ev(S.cur)&&nev.length)S.cur=nev[0].id;try{localStorage.setItem('dkc-platform',JSON.stringify(S))}catch(e){}render()}
+   }else if(canWrite){push()}
+  },function(){clearTimeout(t)});
+  render();
+ }catch(e){}
+}
 var $=function(s){return document.querySelector(s)};
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function uid(){return 'x'+Math.random().toString(36).slice(2,9)}
@@ -131,22 +152,22 @@ function hashPw(s){return crypto.subtle.digest('SHA-256',new TextEncoder().encod
 function vLocked(){return'<section class="dh"><h1>Directors only</h1><p class="muted">Log in with the tournament director account to open the TD console.</p><a class="btn" href="#login">Log in</a></section>'}
 function vLogin(){
  if(S.user){return'<section class="dh"><h1>You are logged in</h1><p class="muted">'+esc(S.user)+(isTD()?' (tournament director)':'')+'</p>'+(isTD()?'<a class="btn" href="#manage">Open the TD console</a>':'<a class="btn" href="#events">Browse tournaments</a>')+'</section>'}
- return'<section class="dh"><h1>Log in</h1><p class="muted">Players can enter an email to speed up registration. Tournament directors log in with the director email and password. The first time, the password you enter (8 or more characters) becomes your password.</p></section><form id="loginf" class="panel"><label>Email<input name="e" type="email" required autocomplete="email"></label><label>Password (directors)<input name="p" type="password" autocomplete="current-password"></label><button class="btn" type="submit">Log in</button></form>'}
+ return'<section class="dh"><h1>Log in</h1><p class="muted">Players can enter an email to speed up registration. Tournament directors log in with the director email and password. The first time, the password you enter (8 or more characters) becomes your password.</p></section><form id="loginf" class="panel"><label>Email<input name="e" type="email" required autocomplete="email"></label><label>Password (directors)<input name="p" type="password" autocomplete="current-password"></label><button class="btn" type="submit">Log in</button>'+(S.pw?'<button class="btn ghost" type="button" data-resetpw="1">Forgot password? Reset it on this device</button>':'')+'</form>'}
 function regForm(e){if(e.rd.length)return'';return'<section class="panel" id="regbox" hidden><h2 style="margin-top:0">Register for '+esc(e.name)+'</h2><form id="regf2" class="grid2" data-ev="'+e.id+'"><label>Player name<input name="n" required autocomplete="off"></label><label>Rating (0 if unrated)<input name="r" type="number" min="0" max="3000" value="0" required></label><label>Grade<input name="g" placeholder="For example, 3rd"></label><label>School or club<input name="s" autocomplete="organization"></label><label>Parent or guardian name<input name="p" required autocomplete="name"></label><label>Email<input name="m" type="email" required autocomplete="email" value="'+esc(S.user||'')+'"></label><label>Phone (optional)<input name="t" type="tel" autocomplete="tel"></label><div class="row"><button class="btn" type="submit">Submit registration</button><button class="btn ghost" type="button" data-hidereg="1">Cancel</button></div></form></section>'}
 function rtext(g){return g.b===null?'Bye':g.r==='1-0'?'1-0':g.r==='.5'?'½-½':g.r==='0-1'?'0-1':'Pending'}
 function vDetail(e){
- var h='<p><a href="#events" class="muted">&larr; All tournaments</a></p>'+(done?'<div class="panel" role="status"><b>You are registered.</b> '+esc(done)+' is on the roster. Check this page on game day for pairings.</div>':'')+'<section class="dh"><div class="muted">'+fmt(e.date)+'</div><h1>'+esc(e.name)+'</h1><p class="muted">'+esc(e.venue)+'</p>';
+ var h='<p><a href="#events" class="muted">&larr; All tournaments</a></p>'+(done?'<div class="panel" role="status"><b>You are registered.</b> '+esc(done)+' is on the roster. Check this page on game day for pairings.</div>':'')+(mailto?'<div class="panel" role="status"><b>One more step.</b> Registrations are sent to the tournament director by email. <a class="btn" href="'+esc(mailto)+'">Send registration email</a></div>':'')+'<section class="dh"><div class="muted">'+fmt(e.date)+'</div><h1>'+esc(e.name)+'</h1><p class="muted">'+esc(e.venue)+'</p>';
  h+=e.rd.length?'<button class="btn big" disabled>Registration closed</button>':'<button class="btn big" data-showreg="1">Register now</button>';
  h+='</section>'+regForm(e)+'<div class="facts"><div><b>'+e.rounds+'</b><span>Swiss rounds</span></div><div><b>'+e.players.length+'</b><span>players on the roster</span></div><div><b>'+(e.rd.length?'Round '+e.rd.length:'Upcoming')+'</b><span>status</span></div></div>';
  h+='<h2>How it works</h2><p class="muted">Everyone plays every round. Each round you are paired against a player with a similar score, so games stay close. Pairings and standings appear on this page as the day goes on.</p>';
  if(e.rd.length){var r=e.rd[e.rd.length-1];
   h+='<h2>Round '+e.rd.length+' pairings</h2><div class="tw"><table><tr><th>Board</th><th>White</th><th>Black</th><th>Result</th></tr>'+r.map(function(g,i){return'<tr><td>'+(g.b===null?'-':i+1)+'</td><td>'+esc(pname(e,g.w))+'</td><td>'+(g.b===null?'Bye':esc(pname(e,g.b)))+'</td><td>'+rtext(g)+'</td></tr>'}).join('')+'</table></div>';
-  h+='<h2>Standings</h2><div class="tw"><table><tr><th>#</th><th>Player</th><th>Rating</th><th>Points</th></tr>'+standings(e).map(function(x,i){return'<tr><td>'+(i+1)+'</td><td>'+esc(x.p.name)+'</td><td>'+(x.p.rtg||'unr')+'</td><td>'+x.pts+'</td></tr>'}).join('')+'</table></div>'}
+  h+='<h2>Standings</h2><div class="tw"><table><tr><th>#</th><th>Player</th><th>Rating</th><th>Points</th></tr>'+standings(e).map(function(x,i){return'<tr><td>'+(i+1)+'</td><td>'+esc(x.p.name)+'</td><td>'+(x.p.rtg||'unr')+'</td><td>'+x.pts+'</td></tr>'}).join('')+'</table></div>';for(var ri=e.rd.length-2;ri>=0;ri--){h+='<h3>Round '+(ri+1)+' results</h3><div class="tw"><table><tr><th>Board</th><th>White</th><th>Black</th><th>Result</th></tr>'+e.rd[ri].map(function(g,i){return'<tr><td>'+(g.b===null?'-':i+1)+'</td><td>'+esc(pname(e,g.w))+'</td><td>'+(g.b===null?'Bye':esc(pname(e,g.b)))+'</td><td>'+rtext(g)+'</td></tr>'}).join('')+'</table></div>'}}
  else if(e.players.length){h+='<h2>Players registered</h2><p class="muted">'+e.players.map(function(p){return esc(p.name)}).join(', ')+'</p><p class="muted">Pairings will appear here when round 1 begins.</p>'}
  else{h+='<h2>Pairings</h2><p class="muted">Pairings and standings will appear here once the tournament starts.</p>'}
  return h}
 function vManage(){
- var e=cur(),h='<h2>TD console<span class="badge">TD</span></h2>';
+ var e=cur(),h='<h2>TD console<span class="badge">TD</span></h2>'+(ref&&canWrite?'':'<div class="panel"><b>Not shared.</b> Changes here are saved on this device only. To save for everyone, open this page while signed in to Claude as the page owner.</div>');
  h+='<div class="panel row"><label>Tournament director<input id="tdname" value="'+esc(S.td)+'"></label><label>Tournament<select id="sel">'+S.ev.map(function(x){return'<option value="'+x.id+'"'+(x.id===e.id?' selected':'')+'>'+esc(x.name)+' ('+fmt(x.date)+')</option>'}).join('')+'</select></label></div>';
  
  h+='<h2>Players ('+e.players.length+')</h2><div class="panel">';
@@ -184,6 +205,7 @@ function addPlayer(e,n,r){e.players.push({id:uid(),name:n.trim(),rtg:Math.max(0,
 document.addEventListener('click',function(x){
  var t=x.target.closest('button');if(!t)return;var e=cur();
  if(t.dataset.reg){var ee=ev(t.dataset.reg);if(ee.rd.length){toast('Registration is closed. Pairings have started.');return}regId=ee.id;$('#regt').textContent='Register for '+ee.name;$('#reg').showModal();return}
+ if(t.dataset.resetpw){S.pw=null;save();render();toast('Password cleared. Enter a new password (8 or more characters) to set it.');return}
  if(t.dataset.logout){S.user=null;save();location.hash='#events';render();toast('Logged out');return}
  if(t.dataset.showreg){var bx=$('#regbox');if(bx){bx.hidden=false;bx.scrollIntoView({behavior:'smooth',block:'center'});var fi=bx.querySelector('input');if(fi)fi.focus({preventScroll:true})}return}
  if(t.dataset.hidereg){$('#regbox').hidden=true;return}
@@ -203,10 +225,11 @@ document.addEventListener('submit',function(x){
  var f=x.target;
  if(f.id==='regf'){x.preventDefault();var e=ev(regId);addPlayer(e,f.n.value,f.r.value);save();f.reset();$('#reg').close();toast('Registered. '+e.players.length+' players now in this event.');render()}
  else if(f.id==='loginf'){x.preventDefault();var em=f.e.value.trim().toLowerCase(),pw=f.p.value;if(em!==TD){S.user=em;save();location.hash='#events';render();toast('Logged in');return}if(!S.pw){if(pw.length<8){toast('Choose a password with at least 8 characters.');return}hashPw(pw).then(function(h){S.pw=h;S.user=em;save();location.hash='#manage';render()})}else{hashPw(pw).then(function(h){if(h===S.pw){S.user=em;save();location.hash='#manage';render()}else{toast('Wrong password.')}})}}
- else if(f.id==='regf2'){x.preventDefault();var e2=ev(f.dataset.ev);if(e2.rd.length){toast('Registration is closed.');return}var nm=f.n.value.trim();if(e2.players.some(function(p){return p.name.toLowerCase()===nm.toLowerCase()})){toast('That player is already registered.');return}e2.players.push({id:uid(),name:nm,rtg:Math.max(0,parseInt(f.r.value,10)||0),grade:f.g.value.trim(),school:f.s.value.trim(),parent:f.p.value.trim(),email:f.m.value.trim(),phone:f.t.value.trim()});save();done=nm;render();window.scrollTo(0,0)}
+ else if(f.id==='regf2'){x.preventDefault();var e2=ev(f.dataset.ev);if(e2.rd.length){toast('Registration is closed.');return}var nm=f.n.value.trim();if(!(ref&&canWrite)){var bd=['Player: '+nm,'Rating: '+f.r.value,'Grade: '+f.g.value,'School or club: '+f.s.value,'Parent or guardian: '+f.p.value,'Email: '+f.m.value,'Phone: '+f.t.value].join('\n');mailto='mailto:'+TD+'?subject='+encodeURIComponent('Registration: '+e2.name)+'&body='+encodeURIComponent(bd);done=null;render();window.scrollTo(0,0);return}if(e2.players.some(function(p){return p.name.toLowerCase()===nm.toLowerCase()})){toast('That player is already registered.');return}e2.players.push({id:uid(),name:nm,rtg:Math.max(0,parseInt(f.r.value,10)||0),grade:f.g.value.trim(),school:f.s.value.trim(),parent:f.p.value.trim(),email:f.m.value.trim(),phone:f.t.value.trim()});save();done=nm;render();window.scrollTo(0,0)}
  else if(f.id==='addp'){x.preventDefault();addPlayer(cur(),f.n.value,f.r.value);save();render()}
  else if(f.id==='newev'){x.preventDefault();var id=uid();S.ev.push({id:id,name:f.n.value.trim(),date:f.d.value,venue:f.v.value.trim(),rounds:Math.min(9,Math.max(1,+f.k.value||4)),players:[],rd:[]});S.cur=id;save();render();toast('Tournament created')}});
-window.addEventListener('hashchange',function(){done=null;render();window.scrollTo(0,0)});
+window.addEventListener('hashchange',function(){done=null;mailto=null;render();window.scrollTo(0,0)});
+syncDb();
 render();
 })();
 </script>
