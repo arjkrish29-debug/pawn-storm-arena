@@ -168,11 +168,11 @@ function vDetail(e){
  return h}
 function vManage(){
  var e=cur(),h='<h2>TD console<span class="badge">TD</span></h2>'+(ref&&canWrite?'':'<div class="panel"><b>Not shared.</b> Changes here are saved on this device only. To save for everyone, open this page while signed in to Claude as the page owner.</div>');
- h+='<div class="panel row"><label>Tournament director<input id="tdname" value="'+esc(S.td)+'"></label><label>Tournament<select id="sel">'+S.ev.map(function(x){return'<option value="'+x.id+'"'+(x.id===e.id?' selected':'')+'>'+esc(x.name)+' ('+fmt(x.date)+')</option>'}).join('')+'</select></label></div>';
+ h+='<div class="panel row"><label>Tournament director<input id="tdname" value="'+esc(S.td)+'"></label><label>Tournament<select id="sel">'+S.ev.map(function(x){return'<option value="'+x.id+'"'+(x.id===e.id?' selected':'')+'>'+esc(x.name)+' ('+fmt(x.date)+')</option>'}).join('')+'</select></label>'+(S.ev.length>1?'<button class="btn ghost" data-delev="1">Delete this tournament</button>':'')+'</div>';
  
  h+='<h2>Players ('+e.players.length+')</h2><div class="panel">';
- h+='<form id="addp" class="row"><label>Name<input name="n" required autocomplete="off"></label><label>Rating<input name="r" type="number" min="0" max="3000" value="0" style="width:6rem"></label><button class="btn" type="submit"'+(e.rd.length?' disabled':'')+'>Add player</button>'+(e.players.length?'':'<button class="btn ghost" type="button" data-sample="1">Add 8 sample players</button>')+'</form>';
- if(e.players.length){h+='<div class="tw"><table><tr><th>Name</th><th>Rating</th><th>School</th><th>Parent contact</th><th></th></tr>'+e.players.map(function(p){return'<tr><td>'+esc(p.name)+'</td><td>'+(p.rtg||'unr')+'</td><td>'+esc(p.school||'')+'</td><td>'+esc((p.parent||'')+(p.email?' '+p.email:''))+'</td><td>'+(e.rd.length?'':'<button class="btn ghost sm" data-del="'+p.id+'">Remove</button>')+'</td></tr>'}).join('')+'</table></div>'}
+ h+='<form id="addp" class="row"><label>Name<input name="n" required autocomplete="off"></label><label>Rating<input name="r" type="number" min="0" max="3000" value="0" style="width:6rem"></label><label>School or club<input name="s" autocomplete="off"></label><label>Email<input name="m" type="email" autocomplete="off"></label><button class="btn" type="submit"'+(e.rd.length?' disabled':'')+'>Add player</button>'+(e.players.length?'':'<button class="btn ghost" type="button" data-sample="1">Add 8 sample players</button>')+'</form>';
+ if(e.players.length){h+='<div class="tw"><table><tr><th>Name</th><th>Rating</th><th>School</th><th>Email</th><th></th></tr>'+e.players.map(function(p){return'<tr><td>'+esc(p.name)+'</td><td>'+(p.rtg||'unr')+'</td><td>'+esc(p.school||'')+'</td><td>'+esc(p.email||'')+(p.parent?' (parent: '+esc(p.parent)+')':'')+'</td><td>'+(e.rd.length?'':'<button class="btn ghost sm" data-del="'+p.id+'">Remove</button>')+'</td></tr>'}).join('')+'</table></div>'}
  h+='</div>';
  var n=e.rd.length,done=roundDone(e);
  h+='<h2>Pairings</h2><div class="panel row"><span>'+(n?'Round '+n+' of '+e.rounds:'No rounds yet')+'</span>';
@@ -200,11 +200,12 @@ function render(){
  var d=/^#e-/.test(location.hash)?ev(location.hash.slice(3)):null;$('#app').innerHTML=m?(td?vManage():vLocked()):lg?vLogin():d?vDetail(d):vEvents()}
 
 /* events */
-var regId=null,done=null;
+var regId=null,done=null,armed=false;
 function addPlayer(e,n,r){e.players.push({id:uid(),name:n.trim(),rtg:Math.max(0,parseInt(r,10)||0)})}
 document.addEventListener('click',function(x){
  var t=x.target.closest('button');if(!t)return;var e=cur();
  if(t.dataset.reg){var ee=ev(t.dataset.reg);if(ee.rd.length){toast('Registration is closed. Pairings have started.');return}regId=ee.id;$('#regt').textContent='Register for '+ee.name;$('#reg').showModal();return}
+ if(t.dataset.delev){if(!armed){armed=true;toast('Click again to delete "'+e.name+'" and its players.');setTimeout(function(){armed=false},4000);return}armed=false;S.ev=S.ev.filter(function(z){return z.id!==e.id});S.cur=S.ev[0].id;save();render();toast('Tournament deleted');return}
  if(t.dataset.resetpw){S.pw=null;save();render();toast('Password cleared. Enter a new password (8 or more characters) to set it.');return}
  if(t.dataset.logout){S.user=null;save();location.hash='#events';render();toast('Logged out');return}
  if(t.dataset.showreg){var bx=$('#regbox');if(bx){bx.hidden=false;bx.scrollIntoView({behavior:'smooth',block:'center'});var fi=bx.querySelector('input');if(fi)fi.focus({preventScroll:true})}return}
@@ -226,7 +227,7 @@ document.addEventListener('submit',function(x){
  if(f.id==='regf'){x.preventDefault();var e=ev(regId);addPlayer(e,f.n.value,f.r.value);save();f.reset();$('#reg').close();toast('Registered. '+e.players.length+' players now in this event.');render()}
  else if(f.id==='loginf'){x.preventDefault();var em=f.e.value.trim().toLowerCase(),pw=f.p.value;if(em!==TD){S.user=em;save();location.hash='#events';render();toast('Logged in');return}if(!S.pw){if(pw.length<8){toast('Choose a password with at least 8 characters.');return}hashPw(pw).then(function(h){S.pw=h;S.user=em;save();location.hash='#manage';render()})}else{hashPw(pw).then(function(h){if(h===S.pw){S.user=em;save();location.hash='#manage';render()}else{toast('Wrong password.')}})}}
  else if(f.id==='regf2'){x.preventDefault();var e2=ev(f.dataset.ev);if(e2.rd.length){toast('Registration is closed.');return}var nm=f.n.value.trim();if(!(ref&&canWrite)){var bd=['Player: '+nm,'Rating: '+f.r.value,'Grade: '+f.g.value,'School or club: '+f.s.value,'Parent or guardian: '+f.p.value,'Email: '+f.m.value,'Phone: '+f.t.value].join('\n');mailto='mailto:'+TD+'?subject='+encodeURIComponent('Registration: '+e2.name)+'&body='+encodeURIComponent(bd);done=null;render();window.scrollTo(0,0);return}if(e2.players.some(function(p){return p.name.toLowerCase()===nm.toLowerCase()})){toast('That player is already registered.');return}e2.players.push({id:uid(),name:nm,rtg:Math.max(0,parseInt(f.r.value,10)||0),grade:f.g.value.trim(),school:f.s.value.trim(),parent:f.p.value.trim(),email:f.m.value.trim(),phone:f.t.value.trim()});save();done=nm;render();window.scrollTo(0,0)}
- else if(f.id==='addp'){x.preventDefault();addPlayer(cur(),f.n.value,f.r.value);save();render()}
+ else if(f.id==='addp'){x.preventDefault();addPlayer(cur(),f.n.value,f.r.value);var lp=cur().players[cur().players.length-1];lp.school=f.s.value.trim();lp.email=f.m.value.trim();save();render()}
  else if(f.id==='newev'){x.preventDefault();var id=uid();S.ev.push({id:id,name:f.n.value.trim(),date:f.d.value,venue:f.v.value.trim(),rounds:Math.min(9,Math.max(1,+f.k.value||4)),players:[],rd:[]});S.cur=id;save();render();toast('Tournament created')}});
 window.addEventListener('hashchange',function(){done=null;mailto=null;render();window.scrollTo(0,0)});
 syncDb();
