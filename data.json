@@ -1,10 +1,594 @@
 {
-  "tournamentTitle": "Pawn Storm Arena - Round 1",
-  "players": [
-    { "name": "Player 1", "rating": 1200, "points": 0 },
-    { "name": "Player 2", "rating": 1150, "points": 0 }
+  "title": "Pawn Storm Arena",
+  "updated": "2026-11-27T16:32:37.427Z",
+  "tdHash": "48f0db3f8a16b6efcad4a1729ab6d6af14d68b685c811a202f52508abc0ebdde",
+  "coaches": [
+    {
+      "email": "coach.alvarez@example.com",
+      "name": "Maria Alvarez",
+      "phone": "(956) 555-0101",
+      "school": "Sample Elementary Chess Club"
+    },
+    {
+      "email": "coach.reyes@example.com",
+      "name": "Daniel Reyes",
+      "phone": "(956) 555-0102",
+      "school": "Sample Middle School Chess Team"
+    },
+    {
+      "email": "coach.trevino@example.com",
+      "name": "Sofia Trevino",
+      "phone": "(956) 555-0103",
+      "school": "Sample High School Chess Club"
+    },
+    {
+      "email": "coach.cole@example.com",
+      "name": "Marcus Cole",
+      "phone": "(956) 555-0104",
+      "school": "Sample Community Chess Club"
+    }
   ],
-  "results": [
-    { "round": 1, "white": "Player 1", "black": "Player 2", "score": "Pending" }
+  "ev": [
+    {
+      "address": "2300 N Glasscock Rd, Mission, TX",
+      "byes": "Max 1, commit before round 2",
+      "date": "2026-12-05",
+      "fees": [
+        [
+          "Through Nov 27, 2026",
+          "$20.00"
+        ],
+        [
+          "Through Dec 1, 2026",
+          "$25.00"
+        ],
+        [
+          "Through Dec 3, 2026",
+          "$30.00"
+        ],
+        [
+          "On-site",
+          "$35"
+        ]
+      ],
+      "flyer": "https://drive.google.com/file/d/1-4_WSSyP_cddkvGZzfE26gxOyUBFnK_f/view?usp=sharing",
+      "id": "e1",
+      "name": "John H Shary Elementary",
+      "players": [],
+      "rd": [],
+      "rounds": 5,
+      "sections": [
+        {
+          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "g": "",
+          "n": "K1",
+          "tc": "G/15;d5"
+        },
+        {
+          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "g": "Grades K-3",
+          "n": "PRIM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "g": "Grades K-6",
+          "n": "ELEM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "g": "Grades 6-12",
+          "n": "MSHS",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "g": "1200+",
+          "n": "1200+",
+          "tc": "G/45;d5"
+        }
+      ],
+      "venue": "Mission, TX"
+    },
+    {
+      "address": "4100 N 34th St, McAllen, TX",
+      "byes": "Max 1, commit before round 2",
+      "date": "2026-12-12",
+      "fees": [
+        [
+          "Through Dec 5, 2026",
+          "$20.00"
+        ],
+        [
+          "Through Dec 8, 2026",
+          "$25.00"
+        ],
+        [
+          "Through Dec 10, 2026",
+          "$30.00"
+        ],
+        [
+          "On-site",
+          "$35"
+        ]
+      ],
+      "flyer": "https://drive.google.com/file/d/1aZ9RzFXe9zAqJSTGdT9vRdx2c3FwcECl/view?usp=sharing",
+      "id": "e2",
+      "name": "Dr Carlos E Castaneda Elementary",
+      "players": [],
+      "rd": [],
+      "rounds": 5,
+      "sections": [
+        {
+          "fee": "$20.00 until Dec 5, 2026, then $25.00",
+          "g": "",
+          "n": "K1",
+          "tc": "G/15;d5"
+        },
+        {
+          "fee": "$20.00 until Dec 5, 2026, then $25.00",
+          "g": "Grades K-3",
+          "n": "PRIM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Dec 5, 2026, then $25.00",
+          "g": "Grades K-6",
+          "n": "ELEM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Dec 5, 2026, then $25.00",
+          "g": "Grades 6-12",
+          "n": "MSHS",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Dec 5, 2026, then $25.00",
+          "g": "1200+",
+          "n": "1200+",
+          "tc": "G/45;d5"
+        }
+      ],
+      "venue": "McAllen, TX"
+    },
+    {
+      "address": "3615 W Rogers Rd, Edinburg, TX",
+      "byes": "Max 1, commit before round 2",
+      "date": "2027-01-09",
+      "fees": [
+        [
+          "Through Jan 2, 2027",
+          "$20.00"
+        ],
+        [
+          "Through Jan 5, 2027",
+          "$25.00"
+        ],
+        [
+          "Through Jan 7, 2027",
+          "$30.00"
+        ],
+        [
+          "On-site",
+          "$35"
+        ]
+      ],
+      "flyer": "https://drive.google.com/file/d/1fjn2Rvq1ECIw5eKe8kJorZ7MKV7eUoS-/view?usp=sharing",
+      "id": "e3",
+      "name": "De Zavala Elementary",
+      "players": [],
+      "rd": [],
+      "rounds": 5,
+      "sections": [
+        {
+          "fee": "$20.00 until Jan 2, 2027, then $25.00",
+          "g": "",
+          "n": "K1",
+          "tc": "G/15;d5"
+        },
+        {
+          "fee": "$20.00 until Jan 2, 2027, then $25.00",
+          "g": "Grades K-3",
+          "n": "PRIM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 2, 2027, then $25.00",
+          "g": "Grades K-6",
+          "n": "ELEM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 2, 2027, then $25.00",
+          "g": "Grades 6-12",
+          "n": "MSHS",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 2, 2027, then $25.00",
+          "g": "1200+",
+          "n": "1200+",
+          "tc": "G/45;d5"
+        }
+      ],
+      "venue": "Edinburg, TX"
+    },
+    {
+      "address": "1700 W Alberta, Edinburg, TX",
+      "byes": "Max 1, commit before round 2",
+      "date": "2027-01-16",
+      "fees": [
+        [
+          "Through Jan 8, 2027",
+          "$20.00"
+        ],
+        [
+          "Through Jan 12, 2027",
+          "$25.00"
+        ],
+        [
+          "Through Jan 14, 2027",
+          "$30.00"
+        ],
+        [
+          "On-site",
+          "$35"
+        ]
+      ],
+      "flyer": "https://drive.google.com/file/d/1_RFOEiImswZUL73pgRtHf40m0ps200tU/view?usp=sharing",
+      "id": "e10",
+      "name": "Alfonso Ramirez Elementary",
+      "players": [],
+      "rd": [],
+      "rounds": 5,
+      "sections": [
+        {
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "g": "",
+          "n": "K1",
+          "tc": "G/15;d5"
+        },
+        {
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "g": "Grades K-3",
+          "n": "PRIM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "g": "Grades K-6",
+          "n": "ELEM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "g": "Grades 6-12",
+          "n": "MSHS",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "g": "1200+",
+          "n": "1200+",
+          "tc": "G/45;d5"
+        }
+      ],
+      "venue": "Edinburg, TX"
+    },
+    {
+      "address": "2901 Incarnate Word Ave, McAllen, TX",
+      "byes": "Max 1, commit before round 2",
+      "date": "2027-01-23",
+      "fees": [
+        [
+          "Through Jan 15, 2027",
+          "$20.00"
+        ],
+        [
+          "Through Jan 19, 2027",
+          "$25.00"
+        ],
+        [
+          "Through Jan 21, 2027",
+          "$30.00"
+        ],
+        [
+          "On-site",
+          "$35"
+        ]
+      ],
+      "flyer": "https://drive.google.com/file/d/1K1DLJzO1VG7VPb1cIiEci0S5Fjz_Y_R7/view?usp=sharing",
+      "id": "e11",
+      "name": "Blanca E Sanchez Elementary",
+      "players": [],
+      "rd": [],
+      "rounds": 5,
+      "sections": [
+        {
+          "fee": "$20.00 until Jan 15, 2027, then $25.00",
+          "g": "",
+          "n": "K1",
+          "tc": "G/15;d5"
+        },
+        {
+          "fee": "$20.00 until Jan 15, 2027, then $25.00",
+          "g": "Grades K-3",
+          "n": "PRIM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 15, 2027, then $25.00",
+          "g": "Grades K-6",
+          "n": "ELEM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 15, 2027, then $25.00",
+          "g": "Grades 6-12",
+          "n": "MSHS",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 15, 2027, then $25.00",
+          "g": "1200+",
+          "n": "1200+",
+          "tc": "G/45;d5"
+        }
+      ],
+      "venue": "McAllen, TX"
+    },
+    {
+      "address": "4205 Los Indios Pkwy, Mission, TX",
+      "byes": "Max 1, commit before round 2",
+      "date": "2027-01-30",
+      "fees": [
+        [
+          "Through Jan 22, 2027",
+          "$20.00"
+        ],
+        [
+          "Through Jan 26, 2027",
+          "$25.00"
+        ],
+        [
+          "Through Jan 28, 2027",
+          "$30.00"
+        ],
+        [
+          "On-site",
+          "$35"
+        ]
+      ],
+      "flyer": "https://drive.google.com/file/d/16QyQV8h0bzmTZP7HDsbysU6P0bHdMcIr/view?usp=sharing",
+      "id": "e12",
+      "name": "Ruben Hinojosa Elementary",
+      "players": [],
+      "rd": [],
+      "rounds": 5,
+      "sections": [
+        {
+          "fee": "$20.00 until Jan 22, 2027, then $25.00",
+          "g": "",
+          "n": "K1",
+          "tc": "G/15;d5"
+        },
+        {
+          "fee": "$20.00 until Jan 22, 2027, then $25.00",
+          "g": "Grades K-3",
+          "n": "PRIM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 22, 2027, then $25.00",
+          "g": "Grades K-6",
+          "n": "ELEM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 22, 2027, then $25.00",
+          "g": "Grades 6-12",
+          "n": "MSHS",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 22, 2027, then $25.00",
+          "g": "1200+",
+          "n": "1200+",
+          "tc": "G/45;d5"
+        }
+      ],
+      "venue": "Mission, TX"
+    },
+    {
+      "address": "1700 W Alberta, Edinburg, TX",
+      "byes": "Max 1, commit before round 2",
+      "date": "2027-01-16",
+      "fees": [
+        [
+          "Through Jan 8, 2027",
+          "$20.00"
+        ],
+        [
+          "Through Jan 12, 2027",
+          "$25.00"
+        ],
+        [
+          "Through Jan 14, 2027",
+          "$30.00"
+        ],
+        [
+          "On-site",
+          "$35"
+        ]
+      ],
+      "id": "e9",
+      "name": "Region X Girls Champion at Alfonso Ramirez Elementary",
+      "players": [],
+      "rd": [],
+      "rounds": 5,
+      "sections": [
+        {
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "g": "",
+          "n": "K1",
+          "tc": "G/15;d5"
+        },
+        {
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "g": "Grades K-3",
+          "n": "PRIM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "g": "Grades K-6",
+          "n": "ELEM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "g": "Grades 6-12",
+          "n": "MSHS",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "g": "1200+",
+          "n": "1200+",
+          "tc": "G/45;d5"
+        }
+      ],
+      "venue": "Edinburg, TX"
+    },
+    {
+      "address": "14000 N Rooth Rd, Edinburg, TX",
+      "byes": "Max 1, commit before round 2",
+      "date": "2027-02-06",
+      "fees": [
+        [
+          "Through Jan 29, 2027",
+          "$20.00"
+        ],
+        [
+          "Through Feb 2, 2027",
+          "$25.00"
+        ],
+        [
+          "Through Feb 4, 2027",
+          "$30.00"
+        ],
+        [
+          "On-site",
+          "$35"
+        ]
+      ],
+      "flyer": "https://drive.google.com/file/d/1QDfYg-gjKBEJq_GyFXTzUR77JSTowNf2/view?usp=sharing",
+      "id": "e13",
+      "name": "Flores Zapata Elementary",
+      "players": [],
+      "rd": [],
+      "rounds": 5,
+      "sections": [
+        {
+          "fee": "$20.00 until Jan 29, 2027, then $25.00",
+          "g": "",
+          "n": "K1",
+          "tc": "G/15;d5"
+        },
+        {
+          "fee": "$20.00 until Jan 29, 2027, then $25.00",
+          "g": "Grades K-3",
+          "n": "PRIM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 29, 2027, then $25.00",
+          "g": "Grades K-6",
+          "n": "ELEM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 29, 2027, then $25.00",
+          "g": "Grades 6-12",
+          "n": "MSHS",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Jan 29, 2027, then $25.00",
+          "g": "1200+",
+          "n": "1200+",
+          "tc": "G/45;d5"
+        }
+      ],
+      "venue": "Edinburg, TX"
+    },
+    {
+      "address": "1601 North 27th Street, McAllen, TX",
+      "date": "2027-02-20",
+      "fees": [
+        [
+          "Until event day",
+          "$40.00"
+        ]
+      ],
+      "id": "e14",
+      "name": "Region X Secondary Regionals (Feb 20-21)",
+      "players": [],
+      "rd": [],
+      "rounds": 8,
+      "sections": [
+        {
+          "fee": "$40.00",
+          "g": "",
+          "n": "Middle School",
+          "tc": "G/45;d5"
+        },
+        {
+          "fee": "$40.00",
+          "g": "",
+          "n": "High School",
+          "tc": "G/45;d5"
+        }
+      ],
+      "venue": "McAllen, TX"
+    },
+    {
+      "address": "1216 N Shary Rd, Mission, TX",
+      "date": "2027-02-27",
+      "fees": [
+        [
+          "Until event day",
+          "$40.00"
+        ]
+      ],
+      "id": "e15",
+      "name": "Region X Elementary Regionals (Feb 27-28)",
+      "players": [],
+      "rd": [],
+      "rounds": 8,
+      "sections": [
+        {
+          "fee": "$40.00",
+          "g": "",
+          "n": "Primary",
+          "tc": "G/45;d5"
+        },
+        {
+          "fee": "$40.00",
+          "g": "",
+          "n": "Elementary",
+          "tc": "G/45;d5"
+        },
+        {
+          "fee": "$40.00",
+          "g": "",
+          "n": "K1",
+          "tc": "G/24;d5"
+        }
+      ],
+      "venue": "Mission, TX"
+    }
   ]
 }
