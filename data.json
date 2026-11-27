@@ -1,0 +1,10 @@
+{
+  "tournamentTitle": "Pawn Storm Arena - Round 1",
+  "players": [
+    { "name": "Player 1", "rating": 1200, "points": 0 },
+    { "name": "Player 2", "rating": 1150, "points": 0 }
+  ],
+  "results": [
+    { "round": 1, "white": "Player 1", "black": "Player 2", "score": "Pending" }
+  ]
+}
