@@ -343,5 +343,68 @@ syncDb();
 render();
 })();
 </script>
+ <section style="max-width:980px; margin:2rem auto; padding:0 1.25rem;">
+  <h2>Live Game Results</h2>
+  <table style="width:100%; border-collapse:collapse; margin-top:1rem;">
+    <thead>
+      <tr>
+        <th style="text-align:left; padding:8px; border-bottom:1px solid #8070ff;">Round</th>
+        <th style="text-align:left; padding:8px; border-bottom:1px solid #8070ff;">Match</th>
+        <th style="text-align:left; padding:8px; border-bottom:1px solid #8070ff;">Result</th>
+      </tr>
+    </thead>
+    <tbody id="results-list"></tbody>
+  </table>
+
+  <div style="margin-top:2rem; padding:1rem; border:1px solid #8070ff; border-radius:8px;">
+    <h3>Director Controls</h3>
+    <button type="button" onclick="postResult(0, '1-0')">Match 1: White Wins (1-0)</button>
+    <button type="button" onclick="postResult(0, '0-1')">Match 1: Black Wins (0-1)</button>
+    <button type="button" onclick="postResult(0, '½-½')">Match 1: Draw (½-½)</button>
+    <br><br>
+    <button type="button" onclick="copyJSON()">📋 Copy Updated data.json</button>
+  </div>
+</section>
+
+<script>
+  let tournamentData = {};
+
+  async function loadTournamentData() {
+    const response = await fetch('./data.json?t=' + Date.now());
+    tournamentData = await response.json();
+    renderResultsTable();
+  }
+
+  function renderResultsTable() {
+    const resultsList = document.getElementById('results-list');
+    resultsList.innerHTML = '';
+
+    if (!tournamentData.results) return;
+
+    tournamentData.results.forEach(match => {
+      resultsList.innerHTML += `
+        <tr>
+          <td style="padding:8px; border-bottom:1px solid rgba(128,112,255,0.3);">Round ${match.round}</td>
+          <td style="padding:8px; border-bottom:1px solid rgba(128,112,255,0.3);">${match.white} vs ${match.black}</td>
+          <td style="padding:8px; border-bottom:1px solid rgba(128,112,255,0.3);"><strong>${match.score}</strong></td>
+        </tr>
+      `;
+    });
+  }
+
+  function postResult(matchIndex, score) {
+    tournamentData.results[matchIndex].score = score;
+    renderResultsTable();
+  }
+
+  function copyJSON() {
+    const formatted = JSON.stringify(tournamentData, null, 2);
+    navigator.clipboard.writeText(formatted);
+    alert("Copied! Now paste this into data.json on GitHub.");
+  }
+
+  loadTournamentData();
+</script>
+
 </body>
 </html>
