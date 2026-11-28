@@ -1,38 +1,73 @@
 {
   "title": "Pawn Storm Arena",
-  "updated": "2026-11-27T16:32:37.427Z",
-  "tdHash": "48f0db3f8a16b6efcad4a1729ab6d6af14d68b685c811a202f52508abc0ebdde",
+  "updated": "2026-11-27T00:00:00Z",
+  "tdHash": "",
   "coaches": [
     {
-      "email": "coach.alvarez@example.com",
       "name": "Maria Alvarez",
-      "phone": "(956) 555-0101",
-      "school": "Sample Elementary Chess Club"
+      "school": "Sample Elementary Chess Club",
+      "email": "coach.alvarez@example.com",
+      "phone": "(956) 555-0101"
     },
     {
-      "email": "coach.reyes@example.com",
       "name": "Daniel Reyes",
-      "phone": "(956) 555-0102",
-      "school": "Sample Middle School Chess Team"
+      "school": "Sample Middle School Chess Team",
+      "email": "coach.reyes@example.com",
+      "phone": "(956) 555-0102"
     },
     {
-      "email": "coach.trevino@example.com",
       "name": "Sofia Trevino",
-      "phone": "(956) 555-0103",
-      "school": "Sample High School Chess Club"
+      "school": "Sample High School Chess Club",
+      "email": "coach.trevino@example.com",
+      "phone": "(956) 555-0103"
     },
     {
-      "email": "coach.cole@example.com",
       "name": "Marcus Cole",
-      "phone": "(956) 555-0104",
-      "school": "Sample Community Chess Club"
+      "school": "Sample Community Chess Club",
+      "email": "coach.cole@example.com",
+      "phone": "(956) 555-0104"
     }
   ],
   "ev": [
     {
-      "address": "2300 N Glasscock Rd, Mission, TX",
-      "byes": "Max 1, commit before round 2",
+      "id": "e1",
+      "name": "John H Shary Elementary",
       "date": "2026-12-05",
+      "venue": "Mission, TX",
+      "rounds": 5,
+      "address": "2300 N Glasscock Rd, Mission, TX",
+      "sections": [
+        {
+          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "g": "",
+          "n": "K1",
+          "tc": "G/15;d5"
+        },
+        {
+          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "g": "Grades K-3",
+          "n": "PRIM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "g": "Grades K-6",
+          "n": "ELEM",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "g": "Grades 6-12",
+          "n": "MSHS",
+          "tc": "G/25; d5"
+        },
+        {
+          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "g": "1200+",
+          "n": "1200+",
+          "tc": "G/45;d5"
+        }
+      ],
       "fees": [
         [
           "Through Nov 27, 2026",
@@ -51,50 +86,111 @@
           "$35"
         ]
       ],
+      "byes": "Max 1, commit before round 2",
       "flyer": "https://drive.google.com/file/d/1-4_WSSyP_cddkvGZzfE26gxOyUBFnK_f/view?usp=sharing",
-      "id": "e1",
-      "name": "John H Shary Elementary",
-      "players": [],
-      "rd": [],
+      "players": [
+        {
+          "id": "p-jaden",
+          "name": "Jaden Bae",
+          "rtg": 850,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-lawson",
+          "name": "Lawson",
+          "rtg": 300,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-landon",
+          "name": "Landon",
+          "rtg": 500,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-dustin",
+          "name": "Dustin",
+          "rtg": 925,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-avy",
+          "name": "Avy",
+          "rtg": 930,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-srihaan",
+          "name": "Srihaan",
+          "rtg": 600,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        }
+      ],
+      "rd": []
+    },
+    {
+      "id": "e2",
+      "name": "Dr Carlos E Castaneda Elementary",
+      "date": "2026-12-12",
+      "venue": "McAllen, TX",
       "rounds": 5,
+      "address": "4100 N 34th St, McAllen, TX",
       "sections": [
         {
-          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "fee": "$20.00 until Dec 5, 2026, then $25.00",
           "g": "",
           "n": "K1",
           "tc": "G/15;d5"
         },
         {
-          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "fee": "$20.00 until Dec 5, 2026, then $25.00",
           "g": "Grades K-3",
           "n": "PRIM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "fee": "$20.00 until Dec 5, 2026, then $25.00",
           "g": "Grades K-6",
           "n": "ELEM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "fee": "$20.00 until Dec 5, 2026, then $25.00",
           "g": "Grades 6-12",
           "n": "MSHS",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Nov 27, 2026, then $25.00",
+          "fee": "$20.00 until Dec 5, 2026, then $25.00",
           "g": "1200+",
           "n": "1200+",
           "tc": "G/45;d5"
         }
       ],
-      "venue": "Mission, TX"
-    },
-    {
-      "address": "4100 N 34th St, McAllen, TX",
-      "byes": "Max 1, commit before round 2",
-      "date": "2026-12-12",
       "fees": [
         [
           "Through Dec 5, 2026",
@@ -113,50 +209,111 @@
           "$35"
         ]
       ],
+      "byes": "Max 1, commit before round 2",
       "flyer": "https://drive.google.com/file/d/1aZ9RzFXe9zAqJSTGdT9vRdx2c3FwcECl/view?usp=sharing",
-      "id": "e2",
-      "name": "Dr Carlos E Castaneda Elementary",
-      "players": [],
-      "rd": [],
+      "players": [
+        {
+          "id": "p-jaden",
+          "name": "Jaden Bae",
+          "rtg": 850,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-lawson",
+          "name": "Lawson",
+          "rtg": 300,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-landon",
+          "name": "Landon",
+          "rtg": 500,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-dustin",
+          "name": "Dustin",
+          "rtg": 925,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-avy",
+          "name": "Avy",
+          "rtg": 930,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-srihaan",
+          "name": "Srihaan",
+          "rtg": 600,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        }
+      ],
+      "rd": []
+    },
+    {
+      "id": "e3",
+      "name": "De Zavala Elementary",
+      "date": "2027-01-09",
+      "venue": "Edinburg, TX",
       "rounds": 5,
+      "address": "3615 W Rogers Rd, Edinburg, TX",
       "sections": [
         {
-          "fee": "$20.00 until Dec 5, 2026, then $25.00",
+          "fee": "$20.00 until Jan 2, 2027, then $25.00",
           "g": "",
           "n": "K1",
           "tc": "G/15;d5"
         },
         {
-          "fee": "$20.00 until Dec 5, 2026, then $25.00",
+          "fee": "$20.00 until Jan 2, 2027, then $25.00",
           "g": "Grades K-3",
           "n": "PRIM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Dec 5, 2026, then $25.00",
+          "fee": "$20.00 until Jan 2, 2027, then $25.00",
           "g": "Grades K-6",
           "n": "ELEM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Dec 5, 2026, then $25.00",
+          "fee": "$20.00 until Jan 2, 2027, then $25.00",
           "g": "Grades 6-12",
           "n": "MSHS",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Dec 5, 2026, then $25.00",
+          "fee": "$20.00 until Jan 2, 2027, then $25.00",
           "g": "1200+",
           "n": "1200+",
           "tc": "G/45;d5"
         }
       ],
-      "venue": "McAllen, TX"
-    },
-    {
-      "address": "3615 W Rogers Rd, Edinburg, TX",
-      "byes": "Max 1, commit before round 2",
-      "date": "2027-01-09",
       "fees": [
         [
           "Through Jan 2, 2027",
@@ -175,50 +332,111 @@
           "$35"
         ]
       ],
+      "byes": "Max 1, commit before round 2",
       "flyer": "https://drive.google.com/file/d/1fjn2Rvq1ECIw5eKe8kJorZ7MKV7eUoS-/view?usp=sharing",
-      "id": "e3",
-      "name": "De Zavala Elementary",
-      "players": [],
-      "rd": [],
+      "players": [
+        {
+          "id": "p-jaden",
+          "name": "Jaden Bae",
+          "rtg": 850,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-lawson",
+          "name": "Lawson",
+          "rtg": 300,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-landon",
+          "name": "Landon",
+          "rtg": 500,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-dustin",
+          "name": "Dustin",
+          "rtg": 925,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-avy",
+          "name": "Avy",
+          "rtg": 930,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-srihaan",
+          "name": "Srihaan",
+          "rtg": 600,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        }
+      ],
+      "rd": []
+    },
+    {
+      "id": "e10",
+      "name": "Alfonso Ramirez Elementary",
+      "date": "2027-01-16",
+      "venue": "Edinburg, TX",
       "rounds": 5,
+      "address": "1700 W Alberta, Edinburg, TX",
       "sections": [
         {
-          "fee": "$20.00 until Jan 2, 2027, then $25.00",
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
           "g": "",
           "n": "K1",
           "tc": "G/15;d5"
         },
         {
-          "fee": "$20.00 until Jan 2, 2027, then $25.00",
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
           "g": "Grades K-3",
           "n": "PRIM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 2, 2027, then $25.00",
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
           "g": "Grades K-6",
           "n": "ELEM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 2, 2027, then $25.00",
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
           "g": "Grades 6-12",
           "n": "MSHS",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 2, 2027, then $25.00",
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
           "g": "1200+",
           "n": "1200+",
           "tc": "G/45;d5"
         }
       ],
-      "venue": "Edinburg, TX"
-    },
-    {
-      "address": "1700 W Alberta, Edinburg, TX",
-      "byes": "Max 1, commit before round 2",
-      "date": "2027-01-16",
       "fees": [
         [
           "Through Jan 8, 2027",
@@ -237,50 +455,111 @@
           "$35"
         ]
       ],
+      "byes": "Max 1, commit before round 2",
       "flyer": "https://drive.google.com/file/d/1_RFOEiImswZUL73pgRtHf40m0ps200tU/view?usp=sharing",
-      "id": "e10",
-      "name": "Alfonso Ramirez Elementary",
-      "players": [],
-      "rd": [],
+      "players": [
+        {
+          "id": "p-jaden",
+          "name": "Jaden Bae",
+          "rtg": 850,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-lawson",
+          "name": "Lawson",
+          "rtg": 300,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-landon",
+          "name": "Landon",
+          "rtg": 500,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-dustin",
+          "name": "Dustin",
+          "rtg": 925,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-avy",
+          "name": "Avy",
+          "rtg": 930,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-srihaan",
+          "name": "Srihaan",
+          "rtg": 600,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        }
+      ],
+      "rd": []
+    },
+    {
+      "id": "e11",
+      "name": "Blanca E Sanchez Elementary",
+      "date": "2027-01-23",
+      "venue": "McAllen, TX",
       "rounds": 5,
+      "address": "2901 Incarnate Word Ave, McAllen, TX",
       "sections": [
         {
-          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "fee": "$20.00 until Jan 15, 2027, then $25.00",
           "g": "",
           "n": "K1",
           "tc": "G/15;d5"
         },
         {
-          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "fee": "$20.00 until Jan 15, 2027, then $25.00",
           "g": "Grades K-3",
           "n": "PRIM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "fee": "$20.00 until Jan 15, 2027, then $25.00",
           "g": "Grades K-6",
           "n": "ELEM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "fee": "$20.00 until Jan 15, 2027, then $25.00",
           "g": "Grades 6-12",
           "n": "MSHS",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "fee": "$20.00 until Jan 15, 2027, then $25.00",
           "g": "1200+",
           "n": "1200+",
           "tc": "G/45;d5"
         }
       ],
-      "venue": "Edinburg, TX"
-    },
-    {
-      "address": "2901 Incarnate Word Ave, McAllen, TX",
-      "byes": "Max 1, commit before round 2",
-      "date": "2027-01-23",
       "fees": [
         [
           "Through Jan 15, 2027",
@@ -299,50 +578,111 @@
           "$35"
         ]
       ],
+      "byes": "Max 1, commit before round 2",
       "flyer": "https://drive.google.com/file/d/1K1DLJzO1VG7VPb1cIiEci0S5Fjz_Y_R7/view?usp=sharing",
-      "id": "e11",
-      "name": "Blanca E Sanchez Elementary",
-      "players": [],
-      "rd": [],
+      "players": [
+        {
+          "id": "p-jaden",
+          "name": "Jaden Bae",
+          "rtg": 850,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-lawson",
+          "name": "Lawson",
+          "rtg": 300,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-landon",
+          "name": "Landon",
+          "rtg": 500,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-dustin",
+          "name": "Dustin",
+          "rtg": 925,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-avy",
+          "name": "Avy",
+          "rtg": 930,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-srihaan",
+          "name": "Srihaan",
+          "rtg": 600,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        }
+      ],
+      "rd": []
+    },
+    {
+      "id": "e12",
+      "name": "Ruben Hinojosa Elementary",
+      "date": "2027-01-30",
+      "venue": "Mission, TX",
       "rounds": 5,
+      "address": "4205 Los Indios Pkwy, Mission, TX",
       "sections": [
         {
-          "fee": "$20.00 until Jan 15, 2027, then $25.00",
+          "fee": "$20.00 until Jan 22, 2027, then $25.00",
           "g": "",
           "n": "K1",
           "tc": "G/15;d5"
         },
         {
-          "fee": "$20.00 until Jan 15, 2027, then $25.00",
+          "fee": "$20.00 until Jan 22, 2027, then $25.00",
           "g": "Grades K-3",
           "n": "PRIM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 15, 2027, then $25.00",
+          "fee": "$20.00 until Jan 22, 2027, then $25.00",
           "g": "Grades K-6",
           "n": "ELEM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 15, 2027, then $25.00",
+          "fee": "$20.00 until Jan 22, 2027, then $25.00",
           "g": "Grades 6-12",
           "n": "MSHS",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 15, 2027, then $25.00",
+          "fee": "$20.00 until Jan 22, 2027, then $25.00",
           "g": "1200+",
           "n": "1200+",
           "tc": "G/45;d5"
         }
       ],
-      "venue": "McAllen, TX"
-    },
-    {
-      "address": "4205 Los Indios Pkwy, Mission, TX",
-      "byes": "Max 1, commit before round 2",
-      "date": "2027-01-30",
       "fees": [
         [
           "Through Jan 22, 2027",
@@ -361,50 +701,111 @@
           "$35"
         ]
       ],
+      "byes": "Max 1, commit before round 2",
       "flyer": "https://drive.google.com/file/d/16QyQV8h0bzmTZP7HDsbysU6P0bHdMcIr/view?usp=sharing",
-      "id": "e12",
-      "name": "Ruben Hinojosa Elementary",
-      "players": [],
-      "rd": [],
+      "players": [
+        {
+          "id": "p-jaden",
+          "name": "Jaden Bae",
+          "rtg": 850,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-lawson",
+          "name": "Lawson",
+          "rtg": 300,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-landon",
+          "name": "Landon",
+          "rtg": 500,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-dustin",
+          "name": "Dustin",
+          "rtg": 925,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-avy",
+          "name": "Avy",
+          "rtg": 930,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-srihaan",
+          "name": "Srihaan",
+          "rtg": 600,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        }
+      ],
+      "rd": []
+    },
+    {
+      "id": "e9",
+      "name": "Region X Girls Champion at Alfonso Ramirez Elementary",
+      "date": "2027-01-16",
+      "venue": "Edinburg, TX",
       "rounds": 5,
+      "address": "1700 W Alberta, Edinburg, TX",
       "sections": [
         {
-          "fee": "$20.00 until Jan 22, 2027, then $25.00",
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
           "g": "",
           "n": "K1",
           "tc": "G/15;d5"
         },
         {
-          "fee": "$20.00 until Jan 22, 2027, then $25.00",
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
           "g": "Grades K-3",
           "n": "PRIM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 22, 2027, then $25.00",
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
           "g": "Grades K-6",
           "n": "ELEM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 22, 2027, then $25.00",
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
           "g": "Grades 6-12",
           "n": "MSHS",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 22, 2027, then $25.00",
+          "fee": "$20.00 until Jan 8, 2027, then $25.00",
           "g": "1200+",
           "n": "1200+",
           "tc": "G/45;d5"
         }
       ],
-      "venue": "Mission, TX"
-    },
-    {
-      "address": "1700 W Alberta, Edinburg, TX",
-      "byes": "Max 1, commit before round 2",
-      "date": "2027-01-16",
       "fees": [
         [
           "Through Jan 8, 2027",
@@ -423,49 +824,110 @@
           "$35"
         ]
       ],
-      "id": "e9",
-      "name": "Region X Girls Champion at Alfonso Ramirez Elementary",
-      "players": [],
-      "rd": [],
+      "byes": "Max 1, commit before round 2",
+      "players": [
+        {
+          "id": "p-jaden",
+          "name": "Jaden Bae",
+          "rtg": 850,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-lawson",
+          "name": "Lawson",
+          "rtg": 300,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-landon",
+          "name": "Landon",
+          "rtg": 500,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-dustin",
+          "name": "Dustin",
+          "rtg": 925,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-avy",
+          "name": "Avy",
+          "rtg": 930,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-srihaan",
+          "name": "Srihaan",
+          "rtg": 600,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        }
+      ],
+      "rd": []
+    },
+    {
+      "id": "e13",
+      "name": "Flores Zapata Elementary",
+      "date": "2027-02-06",
+      "venue": "Edinburg, TX",
       "rounds": 5,
+      "address": "14000 N Rooth Rd, Edinburg, TX",
       "sections": [
         {
-          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "fee": "$20.00 until Jan 29, 2027, then $25.00",
           "g": "",
           "n": "K1",
           "tc": "G/15;d5"
         },
         {
-          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "fee": "$20.00 until Jan 29, 2027, then $25.00",
           "g": "Grades K-3",
           "n": "PRIM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "fee": "$20.00 until Jan 29, 2027, then $25.00",
           "g": "Grades K-6",
           "n": "ELEM",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "fee": "$20.00 until Jan 29, 2027, then $25.00",
           "g": "Grades 6-12",
           "n": "MSHS",
           "tc": "G/25; d5"
         },
         {
-          "fee": "$20.00 until Jan 8, 2027, then $25.00",
+          "fee": "$20.00 until Jan 29, 2027, then $25.00",
           "g": "1200+",
           "n": "1200+",
           "tc": "G/45;d5"
         }
       ],
-      "venue": "Edinburg, TX"
-    },
-    {
-      "address": "14000 N Rooth Rd, Edinburg, TX",
-      "byes": "Max 1, commit before round 2",
-      "date": "2027-02-06",
       "fees": [
         [
           "Through Jan 29, 2027",
@@ -484,60 +946,79 @@
           "$35"
         ]
       ],
+      "byes": "Max 1, commit before round 2",
       "flyer": "https://drive.google.com/file/d/1QDfYg-gjKBEJq_GyFXTzUR77JSTowNf2/view?usp=sharing",
-      "id": "e13",
-      "name": "Flores Zapata Elementary",
-      "players": [],
-      "rd": [],
-      "rounds": 5,
-      "sections": [
+      "players": [
         {
-          "fee": "$20.00 until Jan 29, 2027, then $25.00",
-          "g": "",
-          "n": "K1",
-          "tc": "G/15;d5"
+          "id": "p-jaden",
+          "name": "Jaden Bae",
+          "rtg": 850,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
         },
         {
-          "fee": "$20.00 until Jan 29, 2027, then $25.00",
-          "g": "Grades K-3",
-          "n": "PRIM",
-          "tc": "G/25; d5"
+          "id": "p-lawson",
+          "name": "Lawson",
+          "rtg": 300,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
         },
         {
-          "fee": "$20.00 until Jan 29, 2027, then $25.00",
-          "g": "Grades K-6",
-          "n": "ELEM",
-          "tc": "G/25; d5"
+          "id": "p-landon",
+          "name": "Landon",
+          "rtg": 500,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
         },
         {
-          "fee": "$20.00 until Jan 29, 2027, then $25.00",
-          "g": "Grades 6-12",
-          "n": "MSHS",
-          "tc": "G/25; d5"
+          "id": "p-dustin",
+          "name": "Dustin",
+          "rtg": 925,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
         },
         {
-          "fee": "$20.00 until Jan 29, 2027, then $25.00",
-          "g": "1200+",
-          "n": "1200+",
-          "tc": "G/45;d5"
+          "id": "p-avy",
+          "name": "Avy",
+          "rtg": 930,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-srihaan",
+          "name": "Srihaan",
+          "rtg": 600,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
         }
       ],
-      "venue": "Edinburg, TX"
+      "rd": []
     },
     {
-      "address": "1601 North 27th Street, McAllen, TX",
-      "date": "2027-02-20",
-      "fees": [
-        [
-          "Until event day",
-          "$40.00"
-        ]
-      ],
       "id": "e14",
       "name": "Region X Secondary Regionals (Feb 20-21)",
-      "players": [],
-      "rd": [],
+      "date": "2027-02-20",
+      "venue": "McAllen, TX",
       "rounds": 8,
+      "address": "1601 North 27th Street, McAllen, TX",
       "sections": [
         {
           "fee": "$40.00",
@@ -552,22 +1033,83 @@
           "tc": "G/45;d5"
         }
       ],
-      "venue": "McAllen, TX"
-    },
-    {
-      "address": "1216 N Shary Rd, Mission, TX",
-      "date": "2027-02-27",
       "fees": [
         [
           "Until event day",
           "$40.00"
         ]
       ],
+      "players": [
+        {
+          "id": "p-jaden",
+          "name": "Jaden Bae",
+          "rtg": 850,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-lawson",
+          "name": "Lawson",
+          "rtg": 300,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-landon",
+          "name": "Landon",
+          "rtg": 500,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-dustin",
+          "name": "Dustin",
+          "rtg": 925,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-avy",
+          "name": "Avy",
+          "rtg": 930,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-srihaan",
+          "name": "Srihaan",
+          "rtg": 600,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        }
+      ],
+      "rd": []
+    },
+    {
       "id": "e15",
       "name": "Region X Elementary Regionals (Feb 27-28)",
-      "players": [],
-      "rd": [],
+      "date": "2027-02-27",
+      "venue": "Mission, TX",
       "rounds": 8,
+      "address": "1216 N Shary Rd, Mission, TX",
       "sections": [
         {
           "fee": "$40.00",
@@ -588,7 +1130,75 @@
           "tc": "G/24;d5"
         }
       ],
-      "venue": "Mission, TX"
+      "fees": [
+        [
+          "Until event day",
+          "$40.00"
+        ]
+      ],
+      "players": [
+        {
+          "id": "p-jaden",
+          "name": "Jaden Bae",
+          "rtg": 850,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-lawson",
+          "name": "Lawson",
+          "rtg": 300,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-landon",
+          "name": "Landon",
+          "rtg": 500,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-dustin",
+          "name": "Dustin",
+          "rtg": 925,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-avy",
+          "name": "Avy",
+          "rtg": 930,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        },
+        {
+          "id": "p-srihaan",
+          "name": "Srihaan",
+          "rtg": 600,
+          "grade": "",
+          "section": "",
+          "school": "CK",
+          "ci": true,
+          "paid": true
+        }
+      ],
+      "rd": []
     }
   ]
 }
