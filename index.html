@@ -119,14 +119,16 @@ var GH=null,ghTimer=null,ghBusy=false,ghAgain=false,ghStatus='',ghLast='';try{GH
 var DATA=null;
 function save(){try{localStorage.setItem('dkc-platform',JSON.stringify(S))}catch(e){}push();ghQueue()}
 function clone(o){return JSON.parse(JSON.stringify(o))}
-function isDraft(){return !!DATA&&(JSON.stringify(S.ev)!==JSON.stringify(DATA.ev)||JSON.stringify(S.coaches||[])!==JSON.stringify(DATA.coaches||[]))}
+function isDraft(){return !!DATA&&(JSON.stringify(pubEv(S.ev))!==JSON.stringify(DATA.ev)||JSON.stringify(S.coaches||[])!==JSON.stringify(DATA.coaches||[]))}
 async function loadData(){
  try{var r=await fetch('./data.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)return;var j=await r.json();if(!j||!Array.isArray(j.ev))return;
   DATA=j;if(j.title)S.title=j.title;
-  if(!(isTD()&&isDraft())){S.ev=clone(j.ev);if(j.coaches)S.coaches=clone(j.coaches);if(!ev(S.cur)&&S.ev.length)S.cur=S.ev[0].id}
+  if(!(isTD()&&isDraft())){S.ev=mergePrivate(clone(j.ev),S.ev);if(j.coaches)S.coaches=clone(j.coaches);if(!ev(S.cur)&&S.ev.length)S.cur=S.ev[0].id}
   try{localStorage.setItem('dkc-platform',JSON.stringify(S))}catch(e){}
   render()}catch(e){}}
-function dataJson(){return JSON.stringify({title:S.title||'Pawn Storm Arena',updated:new Date().toISOString(),tdHash:S.pw||(DATA&&DATA.tdHash)||'',coaches:S.coaches||[],ev:S.ev},null,2)}
+function pubEv(a){return clone(a).map(function(e){e.players=(e.players||[]).map(function(p){delete p.email;delete p.phone;delete p.parent;return p});return e})}
+function mergePrivate(nev,old){var m={};(old||[]).forEach(function(e){(e.players||[]).forEach(function(p){m[e.id+'|'+p.id]=p})});nev.forEach(function(e){(e.players||[]).forEach(function(p){var o=m[e.id+'|'+p.id];if(o){['email','phone','parent'].forEach(function(k){if(o[k]&&!p[k])p[k]=o[k]})}})});return nev}
+function dataJson(){return JSON.stringify({title:S.title||'Pawn Storm Arena',updated:new Date().toISOString(),tdHash:S.pw||(DATA&&DATA.tdHash)||'',coaches:S.coaches||[],ev:pubEv(S.ev)},null,2)}
 function ghOn(){return !!(GH&&GH.token&&GH.owner&&GH.repo&&isTD())}
 function ghDraw(){var el=document.getElementById('ghstatus');if(el)el.textContent=ghStatus}
 function ghQueue(){if(!ghOn())return;ghStatus='Waiting to save...';clearTimeout(ghTimer);ghTimer=setTimeout(function(){ghTimer=null;ghPush(false)},2500);ghDraw()}
@@ -383,7 +385,7 @@ if(t.dataset.res){var q=t.dataset.res.split('|'),gm=e.rd[+q[0]][+q[1]];gm.r=gm.r
  if(t.dataset.copy){var tx=standings(e).map(function(r,i){return(i+1)+'. '+r.p.name+' '+r.pts}).join('\n');try{navigator.clipboard.writeText(tx).then(function(){toast('Results copied')},function(){toast('Could not copy')})}catch(er){toast('Could not copy')}return}
  if(t.dataset.ghoff){GH=null;try{localStorage.removeItem('psa-gh')}catch(er){}ghStatus='';render();toast('Auto-save turned off');return}
  if(t.dataset.copyjson){copyText(dataJson(),'data.json copied. Paste it into your GitHub repository.');return}
- if(t.dataset.discard){if(DATA){S.ev=clone(DATA.ev);S.coaches=clone(DATA.coaches||[])}save();render();toast('Draft discarded');return}
+ if(t.dataset.discard){if(DATA){S.ev=mergePrivate(clone(DATA.ev),S.ev);S.coaches=clone(DATA.coaches||[])}save();render();toast('Draft discarded');return}
  if(t.dataset.tstart){var mn=Math.max(1,Math.min(240,parseInt(($('#tmins')||{}).value,10)||45));e.timer={end:Date.now()+mn*60000,round:e.rd.length||1,mins:mn};save();render();return}
  if(t.dataset.tclear){delete e.timer;save();render();return}
  if(t.dataset.print){var pe=ev(t.dataset.print)||e;$('#printarea').innerHTML=pairSheet(pe);window.print();return}
